@@ -15,7 +15,7 @@ const CustomList = ({ itemList, featuredMediaList, categoryList, onPress, naviga
                     image_url={featuredMediaList[item.featuredMediaId] ? featuredMediaList[item.featuredMediaId] : null }
                     categories={item.categories}
                     categoryList={categoryList}
-                    onPress={() => {navigation.navigate('PORTFOLIO/detail', {name: item.title})}}
+                    onPress={() => {navigation.navigate('PORTFOLIO/detail', {item, featuredMediaList, categoryList})}}
                 />}
             />
     </View>

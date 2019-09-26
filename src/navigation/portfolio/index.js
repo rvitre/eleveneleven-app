@@ -19,8 +19,7 @@ export default {
         color: 'white',
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
         shadowColor: 'transparent',
-        elevation: 0,
-        marginBottom:-24
+        marginBottom: -24
       },
       headerTintColor: 'white',
       headerForceInset: { top: 'never', bottom: 'never', vertical: 'never' },
@@ -32,14 +31,16 @@ export default {
     path: 'portfolio/:name',
     //navigationOptions: headerLightStyle({ withoutBackButton: true })
     navigationOptions: ({ navigation }) => ({
-      title: `${navigation.state.params.name}`,
+      title: `${navigation.state.params.item.title}`,
       headerStyle: {
         backgroundColor: 'black',
         color: 'white',
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
+        marginBottom: -24,
       },
       headerTintColor: 'white',
       headerForceInset: { top: 'never', bottom: 'never', vertical: 'never' },
+      
     }),
     mode: 'card',
     headerMode: 'float'
