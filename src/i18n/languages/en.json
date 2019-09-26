@@ -1,0 +1,10 @@
+{
+  "hello": "hello!",
+  "login-login": "Sign In",
+  "error-api-code-492": "Invalid credentials",
+  "email-and-password-empty": "You must provide an email and a password",
+  "password-empty": "Password required",
+  "email-empty": "Email required",
+  "invalid-email": "You must provide a valid email address",
+  "password-empty-and-invalid-email": "You must provide a valid email address and a password"
+}
