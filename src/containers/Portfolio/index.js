@@ -99,8 +99,12 @@ export default class Portfolio extends Component {
                     placeholder="Chercher..."
                     lightTheme
                     round
-
+                    //clearIcon={'cross'}
+                    searchIcon={'search'}
                     autoCorrect={false}
+                    containerStyle={{backgroundColor: 'black'}}
+                    inputContainerStyle={{backgroundColor: 'white'}}
+                    inputStyle={{color: 'black'}}
                 />
                 {this.state.loading ? <Text>LOADING !</Text> : <Text>Done</Text>}
                 <CustomList 

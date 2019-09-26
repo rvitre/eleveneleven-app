@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Platform, StatusBar, Dimensions, Easing, Animated } from "react-native";
+import { Easing, Animated } from "react-native";
 import {
   createStackNavigator
 } from "react-navigation-stack";
@@ -13,27 +13,12 @@ import {
   createSwitchNavigator,
   createAppContainer
 } from "react-navigation";
-import config from "../config";
-import { drawerStyle } from "./styles";
 
-import AuthLoading from "../containers/Login/AuthLoading/AuthLoading";
-import LoginForm from "../containers/Login/LoginForm/LoginForm";
-import SignicatLogin from "../containers/Login/SignicatLogin/SignicatLogin";
-import Home from "../containers/Home/Home";
-import ExitPrompt from "../containers/ExitPrompt";
-import VPN from "../containers/VPN/VPN";
-
-import HomeNavigation from "./home";
-import VPNNavigation from "./vpn";
 import PortfolioNavigation from "./portfolio";
 
 import {
-  LOADING,
-  CYBER_HOME,
   LOGIN,
-  VPN_HOME,
   LOGGED_IN,
-  PORTFOLIO_HOME
 } from "./navigationPaths";
 
 const transitionConfig = () => {
@@ -60,21 +45,52 @@ const transitionConfig = () => {
   }
 }
 
+
+
+
+
 // Portfolio screen stack
 const PortfolioStack = createStackNavigator(
   { ...PortfolioNavigation },
   {
-    transitionConfig,
-    headerForceInset: { top: 'never', bottom: 'never' }
+    transitionConfig
   }
 );
+
+
+const MainDrawer = createDrawerNavigator({
+  Portfolio: PortfolioStack,
+});
+
+const AppModalStack = createStackNavigator(
+  {
+    App: MainDrawer,
+  },
+  {
+    mode: "modal",
+    headerMode: "none",
+  }
+);
+
+
+const App = createSwitchNavigator({
+  App: {
+    screen: AppModalStack
+  },
+});
+
+
+
+
+
+
 
 /**
  * Android
  * Prevents the app from closing on Back button press by returning null
  */
-const prevGetStateForAction = PortfolioStack.router.getStateForAction;
-PortfolioStack.router.getStateForAction = (action, state) => {
+const prevGetStateForAction = App.router.getStateForAction;
+App.router.getStateForAction = (action, state) => {
   console.log("NavigationState", action, state);
 
   if (

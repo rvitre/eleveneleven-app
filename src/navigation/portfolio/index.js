@@ -13,15 +13,19 @@ export default {
   [HOME]: {
     screen: Portfolio,
     navigationOptions:({ navigation }) => ({
-      title: `11h11 Design & Communication`,
+      headerTitle: '11h11 Design & Communication',
       headerStyle: {
         backgroundColor: 'black',
         color: 'white',
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
+        shadowColor: 'transparent',
+        elevation: 0,
+        marginBottom:-24
       },
       headerTintColor: 'white',
-      headerForceInset: { top: 'never', bottom: 'never' }
-    })
+      headerForceInset: { top: 'never', bottom: 'never', vertical: 'never' },
+    }),
+    headerLayoutPreset: 'center',
   },
   [DETAIL]: {
     screen: PortfolioDetail,
@@ -35,7 +39,9 @@ export default {
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
       },
       headerTintColor: 'white',
-      headerForceInset: { top: 'never', bottom: 'never' }
+      headerForceInset: { top: 'never', bottom: 'never', vertical: 'never' },
     }),
+    mode: 'card',
+    headerMode: 'float'
   }
 };
