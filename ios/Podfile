@@ -40,7 +40,6 @@ target 'elevenelevenapp' do
 
   pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
 
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 

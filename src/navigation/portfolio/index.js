@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableNativeFeedback, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableNativeFeedback, StatusBar, TouchableOpacity } from 'react-native';
 import Portfolio from "../../containers/Portfolio";
 import PortfolioDetail from "../../containers/PortfolioDetail";
 
@@ -13,7 +13,11 @@ export default {
   [HOME]: {
     screen: Portfolio,
     navigationOptions:({ navigation }) => ({
-      headerLeft: <Image source={require('../../assets/images/logo-11h11.png')} style={{marginLeft: 8, width: 50, height: 50, resizeMode: 'contain'}} />,
+      headerLeft:
+      <TouchableOpacity  onPress={() => navigation.toggleDrawer()}>
+      <Image source={require('../../assets/images/logo-11h11.png')} style={{marginLeft: 8, width: 50, height: 50, resizeMode: 'contain'}} />
+      </TouchableOpacity>
+      ,
       headerTitle: '11h11 Design & Communication',
       headerStyle: {
         backgroundColor: 'black',

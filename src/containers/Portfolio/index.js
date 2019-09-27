@@ -28,9 +28,6 @@ export default class Portfolio extends Component {
             search: '',
         };
         this.dataHolder = [];
-        // col
-        this.props.navigation.openDrawer()
-        console.log("eeee");
     }
     componentDidMount() {
         fetch("https://11h11-design.fr/wp-json/wp/v2/portfolio?per_page=100")

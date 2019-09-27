@@ -59,12 +59,23 @@ const PortfolioStack = createStackNavigator(
 );
 
 
-const MainDrawer = createDrawerNavigator({
-  Portfolio: PortfolioStack,
-  Contact: {
-    screen: ContactUs
-  } 
-});
+const MainDrawer = createDrawerNavigator(
+  {
+    Portfolio: PortfolioStack,
+    ContactUs:  {
+      screen: ContactUs
+    },
+    Hello: {
+      screen: ContactUs
+    }
+  },
+  {
+    headerMode: 'none',
+    drawerBackgroundColor: 'black',
+    minSwipeDistance: 20,
+    hideStatusBar: true
+  }
+);
 
 const AppModalStack = createStackNavigator(
   {
@@ -78,9 +89,7 @@ const AppModalStack = createStackNavigator(
 
 
 const App = createSwitchNavigator({
-  App: {
-    screen: AppModalStack
-  },
+  App:  AppModalStack
 });
 
 
@@ -119,4 +128,4 @@ App.router.getStateForAction = (action, state) => {
 };
 
 //export default createAppContainer(AppSwitchNavigator);
-export default createAppContainer(PortfolioStack);
+export default createAppContainer(AppModalStack);

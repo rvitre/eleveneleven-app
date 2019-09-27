@@ -6,7 +6,6 @@ import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.dylanvann.fastimage.FastImageViewPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.swmansion.reanimated.ReanimatedPackage;
