@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableNativeFeedback } from 'react-native';
 import styles from './styles.js';
 
-const ListRow = ({ title, description, image_url, categories, categoryList, onPress }) => (
+const ListRow = ({ title, modified, image_url, categories, categoryList, onPress }) => (
     
     <TouchableNativeFeedback
         onPress={onPress}
@@ -13,12 +13,14 @@ const ListRow = ({ title, description, image_url, categories, categoryList, onPr
                 <Text style={styles.title}>
                     {title}
                 </Text>
-                <Text style={styles.description}>
-                    {description}
+                <Text style={styles.date}>
+                    Dernière modification : {modified}
                 </Text>
+                <View style={styles.categories}>
                 {categories.map((cat, index) => {
-                    if (categoryList[cat]) return <Text key={index}>{categoryList[cat].name}</Text>;
+                    if (categoryList[cat]) return <Text style={styles.category} key={index}>{categoryList[cat].name}</Text>;
                 })}
+                </View>
             </View>
 
         </View>

@@ -13,13 +13,14 @@ export default {
   [HOME]: {
     screen: Portfolio,
     navigationOptions:({ navigation }) => ({
+      headerLeft: <Image source={require('../../assets/images/logo-11h11.png')} style={{marginLeft: 8, width: 50, height: 50, resizeMode: 'contain'}} />,
       headerTitle: '11h11 Design & Communication',
       headerStyle: {
         backgroundColor: 'black',
         color: 'white',
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
         shadowColor: 'transparent',
-        marginBottom: -24
+        marginBottom: -2
       },
       headerTintColor: 'white',
       headerForceInset: { top: 'never', bottom: 'never', vertical: 'never' },
@@ -36,7 +37,7 @@ export default {
         backgroundColor: 'black',
         color: 'white',
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 10,
-        marginBottom: -24,
+        marginBottom: -2,
       },
       headerTintColor: 'white',
       headerForceInset: { top: 'never', bottom: 'never', vertical: 'never' },

@@ -3,14 +3,9 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        padding: 10,
-        marginLeft:16,
-        marginRight:16,
-        marginTop: 8,
-        marginBottom: 8,
-        borderRadius: 5,
+        paddingTop: 1,
         backgroundColor: '#FFF',
-        elevation: 2,
+        elevation: 4,
     },
     title: {
         fontSize: 16,
@@ -20,14 +15,26 @@ export default StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         marginLeft: 12,
-        justifyContent: 'center',
+        //justifyContent: 'center',
+        paddingTop: 8,
+        paddingRight: 15,
+        paddingBottom: 15,
     },
-    description: {
+    date: {
         fontSize: 11,
         fontStyle: 'italic',
     },
     photo: {
-        height: 50,
-        width: 50,
+        height: 100,
+        width: 100,
     },
+    categories: {
+        flex: 1,
+        flexDirection: 'row',
+        position: 'absolute',
+        bottom: 6
+    },
+    category: {
+        paddingRight: 6
+    }
 });

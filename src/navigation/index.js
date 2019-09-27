@@ -15,6 +15,7 @@ import {
 } from "react-navigation";
 
 import PortfolioNavigation from "./portfolio";
+import ContactUs from '../containers/ContactUs'
 
 import {
   LOGIN,
@@ -60,6 +61,9 @@ const PortfolioStack = createStackNavigator(
 
 const MainDrawer = createDrawerNavigator({
   Portfolio: PortfolioStack,
+  Contact: {
+    screen: ContactUs
+  } 
 });
 
 const AppModalStack = createStackNavigator(

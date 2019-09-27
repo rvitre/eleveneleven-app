@@ -11,7 +11,7 @@ const CustomList = ({ itemList, featuredMediaList, categoryList, onPress, naviga
                 data={itemList}
                 renderItem={({ item }) => <ListRow
                     title={item.title}
-                    description={item.modified}
+                    modified={item.modified}
                     image_url={featuredMediaList[item.featuredMediaId] ? featuredMediaList[item.featuredMediaId] : null }
                     categories={item.categories}
                     categoryList={categoryList}
