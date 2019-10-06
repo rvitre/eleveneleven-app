@@ -62,6 +62,8 @@ const PortfolioStack = createStackNavigator(
 const MainDrawer = createDrawerNavigator(
   {
     Portfolio: PortfolioStack,
+    Mylife: PortfolioStack,
+    Portfolio: PortfolioStack,
     ContactUs:  {
       screen: ContactUs
     },
@@ -70,10 +72,13 @@ const MainDrawer = createDrawerNavigator(
     }
   },
   {
-    headerMode: 'none',
     drawerBackgroundColor: 'black',
-    minSwipeDistance: 20,
-    hideStatusBar: true
+    contentOptions: {
+      inactiveTintColor: 'white',
+      itemsContainerStyle: {
+        marginTop: 50
+      }
+    }
   }
 );
 
