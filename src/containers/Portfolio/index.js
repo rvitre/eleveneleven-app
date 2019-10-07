@@ -137,5 +137,3 @@ export default class Portfolio extends Component {
         );
     }
 }
-
-

@@ -15,7 +15,8 @@ import {
 } from "react-navigation";
 
 import PortfolioNavigation from "./portfolio";
-import ContactUs from '../containers/ContactUs'
+import ContactNavigation from "./contact";
+import { drawerStyle } from "./styles";
 
 import {
   LOGIN,
@@ -58,22 +59,30 @@ const PortfolioStack = createStackNavigator(
   }
 );
 
+const ContactStack = createStackNavigator(
+  { ...ContactNavigation },
+  {
+    transitionConfig
+  }
+);
+
 
 const MainDrawer = createDrawerNavigator(
   {
     Portfolio: PortfolioStack,
-    ContactUs:  {
-      screen: ContactUs
-    },
-    Hello: {
-      screen: ContactUs
-    }
+    Contact:  ContactStack
   },
   {
-    headerMode: 'none',
+    /*headerMode: 'none',
     drawerBackgroundColor: 'black',
-    minSwipeDistance: 20,
-    hideStatusBar: true
+    //minSwipeDistance: 20,
+    hideStatusBar: true,
+    contentComponent: props => <Drawer />,
+    contentOptions: {
+      activeTintColor: 'white',
+      inactiveTintColor: 'white'
+    }*/
+    ...drawerStyle
   }
 );
 

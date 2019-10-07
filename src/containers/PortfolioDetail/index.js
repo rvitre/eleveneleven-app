@@ -30,6 +30,10 @@ export default class PortfolioDetail extends Component {
         this.getMedias();
     }
 
+    static navigationOptions = ({navigation}) => ({
+        title: navigation.state.params.item.title,
+    });
+
     getMedias() {
         // match https://cdn*.jpg strings
         let reg = new RegExp('(https:\/\/cdn\..*?\.jpg)', 'g');

@@ -11,7 +11,7 @@ import { MAIN } from "./home/navigationPaths";
 import { NavigationActions, StackActions } from "react-navigation";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { imageLogo } from "../assets";
-import Drawer from "../components/Drawer/Drawer";
+import Drawer from "../components/Drawer";
 
 const styles = EStyleSheet.create({
     iconRight: {
@@ -38,87 +38,53 @@ const styles = EStyleSheet.create({
     }
 });
 
-class HeaderRight extends PureComponent {
-    render() {
-        return (
-            <TouchableOpacity style={styles.buttonRight}>
-                <Image
-                    source={require("../assets/images/close.png")}
-                    style={styles.iconRight}
-                />
-            </TouchableOpacity>
-        );
-    }
-}
-
-const headerLightStyle = ({ withoutBackButton = false }) => ({
+const headerDarkStyle = ({ withoutBackButton = false, title }) => ({
     navigation
 }) => ({
+    headerLeft:
+        withoutBackButton ? <TouchableOpacity  onPress={() => navigation.toggleDrawer()}>
+            <Image source={require('../assets/images/logo-11h11.png')} style={{marginLeft: 8, width: 50, height: 50, resizeMode: 'contain'}} />
+        </TouchableOpacity> : ''
+    ,
+    headerTitle: title,
     headerStyle: {
-        marginTop:
-            Platform.OS === "android" ? StatusBar.currentHeight + 0 : 0 + 10,
-        height: 45,
-        borderBottomWidth: 0,
-        elevation: 2,
-        borderBottom: 1,
-        zIndex: 2
+    backgroundColor: 'black',
+    color: 'white',
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    shadowColor: 'transparent',
+    marginBottom: -2,
+    borderBottomWidth: 0,
     },
-    headerForceInset: { top: "never", bottom: "never"},
-    headerTitle: (
-        <TouchableOpacity
-            onPress={() => {
-                navigation.navigate({ routeName: MAIN });
-                navigation.dispatch(
-                    StackActions.reset({
-                        index: 0,
-                        actions: [
-                            NavigationActions.navigate({ routeName: MAIN })
-                        ]
-                    })
-                );
-            }}
-            style={styles.logoButton}
-        >
-            <Image
-                source={imageLogo}
-                style={styles.logoIcon}
-            />
-        </TouchableOpacity>
-    ),
-    headerMode: "float",
-    headerTransparent: true,
-    headerBackTitle: "null",
-    headerLeft: withoutBackButton ? (
-        <View />
-    ) : (
-        ({ onPress }) => (
-            <TouchableOpacity style={{ paddingLeft: 20, paddingRight: 20 }}>
-                <Image
-                    source={require("../assets/images/close.png")}
-                    style={styles.backIcon}
-                />
-            </TouchableOpacity>
-        )
-    ),
-    headerRight: true ? <View /> : <HeaderRight navigation={navigation} /> 
+    headerTintColor: 'white',
+});
+
+const headerTransparentStyle = ({ withoutBackButton = false, title }) => ({
+    navigation
+}) => ({
+    mode: 'card',
+    headerForceInset: { top: 'never', bottom: 'never' },
+    cardStyle: { backgroundColor: 'transparent' },
+    tintColor: '#ffffff',
+    headerMode: 'screen'
 });
 
 const drawerStyle = {
-    drawerPosition: "right",
+    drawerPosition: "left",
     drawerWidth: Dimensions.get("window").width,
-    drawerBackgroundColor: "black",
-    contentComponent: ({ navigation, drawerOpenProgress }) => {
-        return <Drawer navigation={navigation} drawerOpenProgress={drawerOpenProgress} />;
+    drawerBackgroundColor: 'black',
+    contentComponent: ({ navigation }) => {
+        return <Drawer navigation={navigation} />;
     },
     contentOptions: {
         items: items => {
-        return items;
+            return items;
         },
         inactiveTintColor: "white"
     }
 };
 
 export {
-    headerLightStyle,
+    headerDarkStyle,
+    headerTransparentStyle,
     drawerStyle
 };

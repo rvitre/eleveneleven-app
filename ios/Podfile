@@ -34,16 +34,11 @@ target 'elevenelevenapp' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
-
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
-
-  pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
 
 
-  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
-  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+
 
   target 'elevenelevenappTests' do
     inherit! :search_paths

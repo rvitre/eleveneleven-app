@@ -8,6 +8,10 @@ import {
     SectionList,
     StyleSheet,
     FlatList,
+    Linking,
+    Image,
+    ImageBackground,
+    TouchableOpacity
 } from 'react-native';
 import {
     SearchBar
@@ -31,7 +35,26 @@ export default class ContactUs extends Component {
     render() {
         return (
             <View style={styles.container}>
-               <Text>Contactez-nous !</Text>
+                <ImageBackground source={require('../../assets/images/11h11-portfolio-4-crop.jpg')} style={styles.backgroundImage}>
+                    <View style={{position: 'absolute', top: 0, bottom: 0, left: 0, right:0}}>
+                    <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
+                        <View style={styles.bottomButtonView}>
+                            <Text style={styles.bottomButtonText}>contact@11h11-design.fr</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
+                        <View style={styles.bottomButtonView}>
+                            <Text style={styles.bottomButtonText}>09 51 77 05 74</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
+                        <View style={styles.bottomButtonView}>
+                            <Text style={styles.bottomButtonText}>09 51 77 05 74</Text>
+                        </View>
+                    </TouchableOpacity>
+                    </View>    
+                </ImageBackground>
+                
             </View>
         );
     }

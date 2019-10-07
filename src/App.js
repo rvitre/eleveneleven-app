@@ -18,7 +18,7 @@ import { StoreProvider } from "./context/store/storeContext";
 EStyleSheet.build({
   $theBlue: "#07c", // global var available across all EStylesheets
   $headerHeight: 45,
-  $outline: 1, // will outline all components
+  //$outline: 1, // will outline all components
 });
 
 const App = () => {

@@ -13,7 +13,8 @@ export default StyleSheet.create({
     bottomButtonsContainer: {
         flex: -1, 
         flexDirection: 'row', 
-        width: '100%'
+        width: '100%',
+        marginBottom: Platform.OS === "android" ? 0 : 50,
     },
     bottomButton: {
         borderColor: 'white', 

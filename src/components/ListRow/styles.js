@@ -5,7 +5,9 @@ export default StyleSheet.create({
         flexDirection: 'row',
         paddingTop: 1,
         backgroundColor: '#FFF',
-        elevation: 4,
+        elevation: 0,
+        borderBottomWidth: 2,
+        borderBottomColor: '#eee'
     },
     title: {
         fontSize: 16,

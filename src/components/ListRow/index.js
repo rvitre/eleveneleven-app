@@ -1,20 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableNativeFeedback } from 'react-native';
+import moment from "moment";
+import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import styles from './styles.js';
 
-const ListRow = ({ title, modified, image_url, categories, categoryList, onPress }) => (
+export default ListRow = ({ title, modified, image_url, categories, categoryList, onPress }) => {
     
-    <TouchableNativeFeedback
+    const imageUri = image_url!=null ? image_url : "";
+    const theDate = moment(new Date(modified)).format('DD/MM/YYYY');
+    
+    return (
+    <TouchableHighlight
         onPress={onPress}
-        background={TouchableNativeFeedback.SelectableBackground()}>
+        >
         <View style={styles.container}>
-            <Image source={{ uri: image_url }} style={styles.photo} />
+            <Image source={ imageUri.length!=0?{uri: imageUri}: null } style={styles.photo} />
             <View style={styles.container_text}>
                 <Text style={styles.title}>
                     {title}
                 </Text>
                 <Text style={styles.date}>
-                    Dernière modification : {modified}
+                    Dernière modification : {theDate}
                 </Text>
                 <View style={styles.categories}>
                 {categories.map((cat, index) => {
@@ -24,7 +29,5 @@ const ListRow = ({ title, modified, image_url, categories, categoryList, onPress
             </View>
 
         </View>
-    </TouchableNativeFeedback>
-);
-
-export default ListRow;
+    </TouchableHighlight>
+)};
