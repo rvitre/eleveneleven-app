@@ -36,22 +36,25 @@ export default class ContactUs extends Component {
         return (
             <View style={styles.container}>
                 <ImageBackground source={require('../../assets/images/11h11-portfolio-4-crop.jpg')} style={styles.backgroundImage}>
-                    <View style={{position: 'absolute', top: 0, bottom: 0, left: 0, right:0}}>
-                    <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
-                        <View style={styles.bottomButtonView}>
-                            <Text style={styles.bottomButtonText}>contact@11h11-design.fr</Text>
-                        </View>
+                    <TouchableOpacity  onPress={() => this.props.navigation.toggleDrawer()} style={styles.topLogo}>
+                        <Image source={require('../../assets/images/logo-11h11.png')} style={{marginLeft: 8, width: 50, height: 50, resizeMode: 'contain'}} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
-                        <View style={styles.bottomButtonView}>
-                            <Text style={styles.bottomButtonText}>09 51 77 05 74</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
-                        <View style={styles.bottomButtonView}>
-                            <Text style={styles.bottomButtonText}>09 51 77 05 74</Text>
-                        </View>
-                    </TouchableOpacity>
+                    <View style={{flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 60}}>
+                        <TouchableOpacity onPress={() => Linking.openURL('mailto:contact@11h11-design.fr')} style={styles.bottomButton}>
+                            <View style={styles.bottomButtonView}>
+                                <Text style={styles.bottomButtonText}>contact@11h11-design.fr</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL(`tel:0951770574`)} style={styles.bottomButton}>
+                            <View style={styles.bottomButtonView}>
+                                <Text style={styles.bottomButtonText}>09 51 77 05 74</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL(`tel:+33667766892`)} style={styles.bottomButton}>
+                            <View style={styles.bottomButtonView}>
+                                <Text style={styles.bottomButtonText}>06 67 76 68 92</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>    
                 </ImageBackground>
                 

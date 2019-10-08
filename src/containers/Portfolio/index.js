@@ -30,7 +30,7 @@ export default class Portfolio extends Component {
         this.dataHolder = [];
     }
     componentDidMount() {
-        fetch("https://11h11-design.fr/wp-json/wp/v2/portfolio?per_page=100")
+        fetch("https://11h11-design.fr/wp-json/wp/v2/portfolio?page=1")
             .then(response => response.json())
             .then((responseJson) => {
                 let processedResponse = this.processDataSource(responseJson);
@@ -39,6 +39,7 @@ export default class Portfolio extends Component {
                     dataSource: processedResponse
                 });
                 this.dataHolder = this.state.dataSource;
+                console.log(responseJson);
             })
             .catch(error => console.log(error)) //to catch the errors if any
     }

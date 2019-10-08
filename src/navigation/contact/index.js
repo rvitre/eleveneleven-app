@@ -10,9 +10,10 @@ import {
 export default {
   [HOME]: {
     screen: ContactUs,
-    navigationOptions: headerDarkStyle({withoutBackButton: true}),
+    //navigationOptions: headerDarkStyle({withoutBackButton: true}),
     navigationOptions: {
-      headerTransparent: true
+      headerTransparent: true,
+      header: null
     }
   }
 };
