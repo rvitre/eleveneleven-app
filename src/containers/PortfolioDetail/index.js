@@ -14,6 +14,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import GallerySwiper from "react-native-gallery-swiper";
+import { PrimaryButton } from '../../components/Buttons';
 import styles from './styles';
 
 export default class PortfolioDetail extends Component {
@@ -55,7 +56,6 @@ export default class PortfolioDetail extends Component {
         let content = this.state.dataSource.content;
         let allUrls = content.match(reg);
         let interestingUrls = allUrls.filter((link) => !link.match(regX)); // we don't want thumbnails
-        console.log('getclienturl', allUrls, interestingUrls);
         return interestingUrls[0];
     }
 
@@ -101,29 +101,13 @@ export default class PortfolioDetail extends Component {
                     />
                 </View>
                 { this.getClientUrl() ? <View style={styles.bottomButtonsContainer}>
-                     <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
+                    <TouchableOpacity onPress={() => this.handleClick(this.getClientUrl())} style={styles.bottomButton}>
                         <View style={styles.bottomButtonView}>
                             <Text style={styles.bottomButtonText}>Voir le site</Text>
                         </View>
                     </TouchableOpacity>
-                </View> : null}
+                </View> : null }
             </View>
         );
     }
 }
-/*
- <TouchableOpacity onPress={() => this.handleClick(this.state.dataSource.link)} style={{borderColor: 'white', flex:1, borderWidth: 4}}>
-                        <View style={{ backgroundColor: 'black', height: 40, alignItems: 'center', justifyContent: 'center', marginRight: 7}}>
-                            <Text style={{color: 'white', fontSize: 16}}>Voir sur 11h11</Text>
-                        </View>
-                    </TouchableOpacity>*/
-// {this.getClientUrl() ? <Text>{this.getClientUrl()}</Text> : null }
-/*
- <Image source={{ uri: this.getFeaturedMedia() }}
-                        style={{ height: '50%'}} />
-                <View style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-                    {this.getMedias().map((media) => {
-                        return <Image source={{ uri: media }}
-                            style={{ width: '50%', height:100, resizeMode: 'contain',  borderWidth: 1}} />
-                    })}
-                </View>*/

@@ -16,6 +16,7 @@ import {
 
 import PortfolioNavigation from "./portfolio";
 import ContactNavigation from "./contact";
+import PhotoMonthNavigation from "./photoMonth";
 import { drawerStyle } from "./styles";
 
 import {
@@ -55,22 +56,31 @@ const transitionConfig = () => {
 const PortfolioStack = createStackNavigator(
   { ...PortfolioNavigation },
   {
-    transitionConfig
+    //transitionConfig
   }
 );
 
 const ContactStack = createStackNavigator(
   { ...ContactNavigation },
   {
-    transitionConfig
+    //transitionConfig
+  }
+);
+
+const PhotoMonthStack = createStackNavigator(
+  { ...PhotoMonthNavigation },
+  {
+    //transitionConfig,
   }
 );
 
 
 const MainDrawer = createDrawerNavigator(
   {
+    
     Portfolio: PortfolioStack,
-    Contact:  ContactStack
+    Contact:  ContactStack,
+    PhotoMonth: PhotoMonthStack,
   },
   {
     /*headerMode: 'none',
@@ -111,8 +121,8 @@ const App = createSwitchNavigator({
  * Android
  * Prevents the app from closing on Back button press by returning null
  */
-const prevGetStateForAction = App.router.getStateForAction;
-App.router.getStateForAction = (action, state) => {
+const prevGetStateForAction = AppModalStack.router.getStateForAction;
+AppModalStack.router.getStateForAction = (action, state) => {
   console.log("NavigationState", action, state);
 
   if (

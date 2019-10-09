@@ -26,36 +26,53 @@ export default class Portfolio extends Component {
             featuredMediaList: {},
             categoryList: [],
             search: '',
+            page: 1,
+            noMorePage: false
         };
         this.dataHolder = [];
     }
     componentDidMount() {
         this.startRequests(1);
     }
-
+    getMorePortfolio() {
+        this.setState({
+            page: +this.state.page + 1
+        }, () => {
+            this.state.noMorePage ? null : this.startRequests(this.state.page);
+        })
+    }
     startRequests(page) {
         this.getPortfolioPerPage(page) 
         .then(response => response.json())
         .then((responseJson) => {
             this.saveData(responseJson);
         })
-        .catch(error => console.log(error)) //to catch the errors if any
+        .catch(error => console.error(error)) //to catch the errors if any
     }
-    getMorePortfolio(page) {
-        this.startRequests(2);
-    }
+    
     getPortfolioPerPage(page) {
         return fetch("https://11h11-design.fr/wp-json/wp/v2/portfolio?page="+page);
     }
 
     saveData(responseJson) {
         let processedResponse = this.processDataSource(responseJson);
-        this.setState({
-            loading: false,
-            dataSource: processedResponse
-        });
-        this.dataHolder = this.state.dataSource;
-        console.log(responseJson);
+
+        if (!this.state.noMorePage) {
+            this.setState(state => {
+                const newData = state.dataSource.concat(processedResponse);
+                return {
+                    loading: false,
+                    dataSource: newData
+                }
+            });
+            this.dataHolder = this.state.dataSource;
+
+            if (processedResponse.length != 10) {
+                this.setState({
+                    noMorePage: true
+                })
+            }
+        }
     }
 
     processDataSource(response) {
@@ -90,7 +107,7 @@ export default class Portfolio extends Component {
                     };
                 });
             })
-            .catch(error => console.log(error)) //to catch the errors if any
+            .catch(error => console.error(error)) //to catch the errors if any
     }
 
     getCategoryDefinition(cats) {
@@ -108,7 +125,7 @@ export default class Portfolio extends Component {
                     })
 
                 })
-                .catch(error => console.log(error)) //to catch the errors if any
+                .catch(error => console.error(error)) //to catch the errors if any
         });
     }
 
@@ -117,9 +134,7 @@ export default class Portfolio extends Component {
 
         const newData = this.dataHolder.filter(item => {
             const itemData = item.title.toUpperCase();
-
             const searchData = search.toUpperCase();
-
             return itemData.indexOf(searchData) > -1;
         });
 
@@ -148,7 +163,7 @@ export default class Portfolio extends Component {
                     navigation={this.props.navigation}
                     featuredMediaList={this.state.featuredMediaList}
                     categoryList={this.state.categoryList}
-                    onEndReached={this.getMorePortfolio}
+                    onEndReached={() => this.getMorePortfolio()}
                 />
                     
             </View>

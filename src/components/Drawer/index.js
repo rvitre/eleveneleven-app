@@ -35,6 +35,14 @@ export default Drawer = props => {
               <Image source={require('../../assets/images/logo-11h11-baseline-1.png')} style={{ width: 150, height: 150, resizeMode: 'contain'}} />
             </TouchableOpacity>
             <DrawerItem
+              label={"Photo du mois"}
+              onPress={() => {
+                navigation.navigate("PHOTOMONTH/home");
+                StatusBar.setBarStyle("light-content", true);
+                navigation.closeDrawer();
+              }}
+            />
+            <DrawerItem
               label={"Portfolio"}
               onPress={() => {
                 navigation.navigate("PORTFOLIO/home");
