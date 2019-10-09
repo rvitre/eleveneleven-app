@@ -3,32 +3,22 @@ import { ApplicationStyles } from "../../themes";
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
-  buttonContainer: {
-    backgroundColor: "#000",
-    padding: 15,
-    marginTop: 20,
-    borderRadius: 8,
-    width: "100%"
+  button: {
+    //flex:1, 
+    width: '90%',
+    marginBottom: 15,
+    borderWidth: 3,
+    borderColor: 'white',
+    backgroundColor: 'rgba(0,0,0,0.5)', 
+  },
+  buttonView: {
+      height: 40, 
+      alignItems: 'center', 
+      justifyContent: 'center'
   },
   buttonText: {
-    color: "white",
-    textAlign: "center",
-    fontSize: 18
+      color: 'white', 
+      fontSize: 16,
+      fontWeight: 'bold'
   },
-  buttonContainerSec: {
-    backgroundColor: "#1F1A38",
-    padding: 15,
-    marginTop: 20,
-    borderRadius: 8,
-    width: "100%"
-  },
-  buttonTextSec: {
-    color: "#758a95",
-    textAlign: "center",
-    fontSize: 18
-  },
-  linkContainer: {
-    padding: 10,
-    marginTop: 5
-  }
 });

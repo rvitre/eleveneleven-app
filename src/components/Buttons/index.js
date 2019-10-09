@@ -1,15 +1,15 @@
 import React from 'react';
-import { TouchableOpacity, Text, TouchableHighlight } from 'react-native';
+import { TouchableOpacity, Text, TouchableHighlight, View } from 'react-native';
 
 import styles from './ButtonsStyles';
 
 function PrimaryButton({ onPress, text }) {
-  // Declare a new state variable, which we'll call "count"
-
   return (
-    <TouchableOpacity onPress={onPress} style={styles.buttonContainer}>
-      <Text style={styles.buttonText}>{text}</Text>
-    </TouchableOpacity>
+    <TouchableOpacity onPress={onPress} style={styles.button}>
+      <View style={styles.buttonView}>
+          <Text style={styles.buttonText}>{text}</Text>
+      </View>
+  </TouchableOpacity>
   );
 }
 
