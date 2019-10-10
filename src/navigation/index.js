@@ -77,10 +77,9 @@ const PhotoMonthStack = createStackNavigator(
 
 const MainDrawer = createDrawerNavigator(
   {
-    
+    PhotoMonth: PhotoMonthStack,
     Portfolio: PortfolioStack,
     Contact:  ContactStack,
-    PhotoMonth: PhotoMonthStack,
   },
   {
     /*headerMode: 'none',
