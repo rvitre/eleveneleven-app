@@ -21,6 +21,8 @@ EStyleSheet.build({
   //$outline: 1, // will outline all components
 });
 
+console.disableYellowBox = true;
+
 const App = () => {
   return (
     <Provider store={store}>
