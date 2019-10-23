@@ -1,9 +1,7 @@
-import React, { PureComponent, useEffect } from "react";
-import { DrawerItems, SafeAreaView } from "react-navigation";
+import React from "react";
+import { SafeAreaView } from "react-navigation";
 import { useNavigation } from 'react-navigation-hooks';
 import {
-  View,
-  Platform,
   StatusBar,
   TouchableOpacity,
   Image,
