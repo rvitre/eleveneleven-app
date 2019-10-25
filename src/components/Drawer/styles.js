@@ -7,7 +7,9 @@ const styles = EStyleSheet.create({
   },
   header: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 50,
+    paddingBottom: 50
   },
 
   drawerItemContainer: {
@@ -23,6 +25,19 @@ const styles = EStyleSheet.create({
     fontWeight: "300",
     textAlign: "center",
     lineHeight: 29
+  },
+  drawerItemContainerLabelOnly: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "center",
+    paddingTop: 10,
+    paddingBottom: 10,
+    color: "grey",
+    fontSize: 18,
+    fontWeight: "300",
+    textAlign: "center",
+    lineHeight: 29,
+    marginTop: 200
   },
   separator: {
     height: 1,

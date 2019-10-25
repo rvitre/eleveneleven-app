@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import styles from './styles';
 
-const DrawerItem = ({ onPress, label = "Item" }) => (
+const DrawerItem = ({ onPress, label = "Item", labelOnly = false }) => (
+  labelOnly ? <Text style={styles.drawerItemContainerLabelOnly}>{label}</Text> :
   <TouchableOpacity style={styles.drawerItemContainer} onPress={onPress}>
     <Text style={styles.drawerItemLabel}>{label}</Text>
   </TouchableOpacity>
@@ -55,6 +56,10 @@ export default Drawer = props => {
                 StatusBar.setBarStyle("light-content", true);
                 navigation.closeDrawer();
               }}
+            />
+            <DrawerItem
+              label={"v0.1.0"}
+              labelOnly={true}
             />
           </SafeAreaView>
         </ScrollView>

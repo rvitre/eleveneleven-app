@@ -6,13 +6,14 @@
  * @flow
  */
 
-import React from "react";
+import React, {Fragment, useEffect} from "react";
 import { store, persistor } from "./store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { StatusBar, StyleSheet, View } from "react-native";
 import Navigation from "./navigation";
 import EStyleSheet from "react-native-extended-stylesheet";
+import SplashScreen from 'react-native-splash-screen';
 
 EStyleSheet.build({
   $theBlue: "#07c", // global var available across all EStylesheets
@@ -23,6 +24,10 @@ EStyleSheet.build({
 console.disableYellowBox = true;
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+  
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
@@ -44,11 +49,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "black"
   }
-});
-
-module.hot.accept(() => {
-  EStyleSheet.clearCache();
-  EStyleSheet.build(); // force style re-calculation
 });
 
 export default App;
